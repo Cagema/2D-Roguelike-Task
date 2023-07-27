@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
@@ -31,7 +30,7 @@ public class BoardManager : MonoBehaviour
     public GameObject[] OuterWallTiles;
 
     Transform _boardHolder;
-    List<Vector3> _gridPositions = new List<Vector3>();
+    List<Vector3> _gridPositions = new();
 
     void InitialiseList()
     {
@@ -49,9 +48,9 @@ public class BoardManager : MonoBehaviour
     {
         _boardHolder = new GameObject("Board").transform;
 
-        for (int x = -1; x < Columns; x++)
+        for (int x = -1; x < Columns + 1; x++)
         {
-            for (int y = -1; y < Rows; y++)
+            for (int y = -1; y < Rows + 1; y++)
             {
                 GameObject toInstantiane = FloorTiles[Random.Range(0, FloorTiles.Length)];
                 if (x == -1 || x == Columns || y == -1 || y == Rows)
